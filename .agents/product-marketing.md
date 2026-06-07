@@ -16,7 +16,8 @@
 
 **Business model:** Venda única de produto digital. **Preço sugerido: R$ 19,90.**
 
-**Título de trabalho:** "Casais Reconstruindo Confiança Sem Forçar Perdão" *(precisa virar algo mais vendável — ver seção "Open Items").*
+**Título:** "Depois da Traição: O Plano de 6 Semanas Para Reconstruir a Confiança Sem Se Forçar a Perdoar"
+**Subtítulo:** "Como estabilizar a casa, conversar sem repetir o dano e perceber se a confiança está voltando — sem perdão forçado nem decisões apressadas."
 
 ## Target Audience
 
@@ -186,6 +187,6 @@
 
 ## Open Items
 
-- **Título:** trocar o título de trabalho por uma versão mais vendável. Opção recomendada e alternativas estão na conversa de criação deste contexto — escolher um e atualizar a seção "Product Overview".
+- **Título:** ✅ definido — "Depois da Traição: O Plano de 6 Semanas Para Reconstruir a Confiança Sem Se Forçar a Perdoar".
 - **Canal de venda / plataforma:** definir (Hotmart, Kiwify, Eduzz, etc.).
 - **Prova social:** colher depoimentos reais assim que houver primeiros compradores.
