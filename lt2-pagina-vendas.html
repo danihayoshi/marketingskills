@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Mensagem Que Faz Ele Responder | Saiba o que responder em 10 min</title>
+<meta name="description" content="Ficou no visto? Em 10 minutos você sabe o que responder, quando responder e quando deixar pra lá. Sem mandar no impulso. R$19,90.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAFA;
+    --ink:#1A1A1A;
+    --graphite:#1F1F23;
+    --bubble:#ECECEE;
+    --gray:#8A8A8E;
+    --blue:#3D9DF5;
+    --red:#E84855;
+    --white:#F5F5F5;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:88px; /* room for sticky CTA */
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:0 20px}
+  section{padding:44px 0}
+  h1{font-size:2rem;font-weight:900;line-height:1.15;letter-spacing:-.02em}
+  h2{font-size:1.4rem;font-weight:800;line-height:1.2;margin-bottom:18px;letter-spacing:-.01em}
+  .red{color:var(--red)}
+  .sub{font-size:1.1rem;color:#444;margin-top:16px}
+  p{margin-bottom:14px}
+  .micro{font-size:.85rem;color:var(--gray);margin-top:10px}
+
+  /* CTA buttons */
+  .btn{
+    display:inline-block;background:var(--blue);color:#fff;
+    font-weight:700;font-size:1.05rem;text-decoration:none;
+    padding:16px 28px;border-radius:999px;text-align:center;
+    box-shadow:0 6px 18px rgba(61,157,245,.35);
+    transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-wrap{margin-top:24px}
+
+  /* chat bubbles */
+  .chat{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+  .bubble{
+    background:var(--bubble);border-radius:var(--radius);
+    border-top-left-radius:4px;padding:12px 16px;max-width:88%;
+    font-size:1rem;position:relative;
+  }
+  .bubble .time{display:block;font-size:.72rem;color:var(--gray);margin-top:6px}
+  .bubble.sent{
+    align-self:flex-end;background:#DCF1FF;border-top-left-radius:16px;border-top-right-radius:4px;
+  }
+  .bubble.sent .check{color:var(--blue);font-weight:700}
+  .tag{display:inline-block;background:var(--red);color:#fff;font-size:.72rem;font-weight:700;
+    padding:2px 8px;border-radius:6px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em}
+
+  /* checklist */
+  .check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+  .check-list li{padding-left:30px;position:relative;font-size:1.05rem}
+  .check-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--blue);font-weight:900}
+
+  /* not-doing block */
+  .nope{background:#fff;border:1px solid #eee;border-left:4px solid var(--red);
+    border-radius:12px;padding:20px 22px}
+  .nope li{list-style:none;padding-left:26px;position:relative;margin-bottom:10px}
+  .nope li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800}
+
+  /* offer */
+  .offer{background:var(--graphite);color:var(--white);border-radius:20px;padding:32px 26px;text-align:center}
+  .offer .old{color:var(--gray);text-decoration:line-through;font-size:1.1rem}
+  .offer .new{font-size:2.6rem;font-weight:900;color:#fff;line-height:1;margin:6px 0}
+  .offer .terms{color:#cfcfd3;font-size:.95rem;margin-bottom:8px}
+  .offer .btn{margin-top:18px}
+  .guarantee{background:rgba(61,157,245,.12);border-radius:12px;padding:14px 16px;margin-top:18px;
+    font-size:.95rem;color:#dfeefc}
+
+  /* faq */
+  details{border-bottom:1px solid #e6e6e6;padding:14px 0}
+  details summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--blue);font-weight:900;font-size:1.3rem}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:10px;color:#444}
+
+  .who{display:grid;gap:14px}
+  .who div{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px 18px}
+  .who .yes{border-left:4px solid var(--blue)}
+  .who .no{border-left:4px solid var(--gray)}
+
+  /* sticky mobile CTA */
+  .sticky{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:rgba(250,250,250,.96);backdrop-filter:blur(8px);
+    border-top:1px solid #e6e6e6;padding:12px 16px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .sticky .price{font-weight:800;white-space:nowrap}
+  .sticky .price small{display:block;color:var(--gray);font-weight:500;font-size:.72rem;text-decoration:line-through}
+  .sticky .btn{flex:1;padding:14px 16px;font-size:1rem;box-shadow:none}
+  .lead{font-size:1.05rem}
+  hr{border:none;border-top:1px solid #ececec;margin:0}
+  @media(min-width:560px){h1{font-size:2.4rem}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="wrap" style="padding-top:52px">
+  <h1>Ele viu. Não respondeu. E sua mão já tá indo pro <span class="red">teclado</span>.</h1>
+  <p class="sub">Em 10 minutos você sabe exatamente o que responder, quando responder e quando deixar pra lá — sem mandar no impulso e sem se rebaixar.</p>
+  <div class="btn-wrap"><a href="#oferta" class="btn">Quero saber o que responder</a></div>
+  <p class="micro">Acesso imediato · R$19,90</p>
+</section>
+
+<hr>
+
+<!-- VOCÊ SE RECONHECE -->
+<section class="wrap">
+  <h2>Você se reconhece?</h2>
+  <div class="chat">
+    <div class="bubble">Já escrevi e apaguei a mesma mensagem umas três vezes.<span class="time">23h47</span></div>
+    <div class="bubble">Não quero parecer carente, mas também não quero fingir que não liguei.<span class="time">00h12</span></div>
+    <div class="bubble">Não sei se ele sumiu porque perdeu o interesse ou se só tá ocupado.<span class="time">00h31</span></div>
+    <div class="bubble">Se eu mandar qualquer coisa errada, acabou de vez.<span class="time">01h05</span></div>
+  </div>
+  <p class="lead">O problema nunca foi o que você sente. É o que você manda — e a hora que manda.</p>
+</section>
+
+<hr>
+
+<!-- POR QUE ACONTECE -->
+<section class="wrap">
+  <h2>Por que isso acontece</h2>
+  <p>O silêncio dele pode significar dez coisas. Sua ansiedade só te conta a pior.</p>
+  <p>Aí você manda no impulso, explica demais, e a mensagem que era pra reaproximar vira cobrança. <strong>O textão é o pior negócio:</strong> ele lê, sente o peso, deixa pra depois — e "depois" vira o vácuo que você tá olhando agora.</p>
+</section>
+
+<hr>
+
+<!-- A VIRADA -->
+<section class="wrap">
+  <h2>A virada</h2>
+  <p>Esse livro te dá um filtro simples: <strong>3 perguntas pra fazer antes de apertar enviar.</strong> Em 10 minutos você troca a mensagem ansiosa pela mensagem certa — curta, clara e segura.</p>
+  <div class="chat">
+    <div class="bubble"><span class="tag">No impulso</span>Oi, tava pensando na gente e queria entender o que aconteceu porque…</div>
+    <div class="bubble sent">Oi sumido, tá tudo certo? <span class="check">✓✓</span><span class="time">enviada</span></div>
+  </div>
+</section>
+
+<hr>
+
+<!-- O QUE NÃO FAZ -->
+<section class="wrap">
+  <h2>O que esse livro <span class="red">não</span> faz</h2>
+  <p>Pra deixar claro, porque importa:</p>
+  <div class="nope">
+    <ul>
+      <li>Não força ele a responder.</li>
+      <li>Não conserta homem inconsistente.</li>
+      <li>Não transforma cara indisponível em cara presente.</li>
+    </ul>
+  </div>
+  <p style="margin-top:16px">Quando o desinteresse é real e repetido, o livro te ajuda a enxergar isso sem novela — e a <strong>sair inteira.</strong></p>
+</section>
+
+<hr>
+
+<!-- O QUE TEM DENTRO -->
+<section class="wrap">
+  <h2>O que tem dentro</h2>
+  <ul class="check-list">
+    <li>As <strong>3 perguntas</strong> que você faz antes de enviar qualquer coisa</li>
+    <li>Rascunhos de resposta prontos pra cada cenário (sumiu, esfriou, respondeu seco)</li>
+    <li>Como cortar o textão e deixar a mensagem objetiva</li>
+    <li>Como soar segura sem parecer fria — e carinhosa sem parecer carente</li>
+    <li>Quando responder, quando esperar e quando deixar pra lá</li>
+    <li>Checklist da mensagem segura antes de mandar</li>
+  </ul>
+</section>
+
+<hr>
+
+<!-- PRA QUEM É -->
+<section class="wrap">
+  <h2>Pra quem é (e pra quem não é)</h2>
+  <div class="who">
+    <div class="yes"><strong>É pra você se</strong> tá numa conversa que esfriou e quer agir com clareza, sem se humilhar.</div>
+    <div class="no"><strong>Não é pra você se</strong> quer um truque pra "controlar a mente dele". Aqui não tem disso.</div>
+  </div>
+</section>
+
+<hr>
+
+<!-- OFERTA -->
+<section class="wrap" id="oferta">
+  <div class="offer">
+    <span class="old">R$47</span>
+    <div class="new">R$19,90</div>
+    <p class="terms">Acesso imediato · leitura de 10 minutos</p>
+    <a href="#" class="btn">Comprar agora — R$19,90</a>
+    <div class="guarantee">🛡️ Se em 10 minutos você não souber o que responder, devolvo seu dinheiro. Sem pergunta.</div>
+  </div>
+</section>
+
+<hr>
+
+<!-- FAQ -->
+<section class="wrap">
+  <h2>Perguntas que toda mundo faz</h2>
+  <details><summary>E se ele achar que tô insistindo?</summary><p>O livro ensina mensagem curta e com tom seguro — sem cobrança, sem textão.</p></details>
+  <details><summary>E se eu tiver interpretando errado?</summary><p>As 3 perguntas existem justamente pra você não agir no impulso.</p></details>
+  <details><summary>Tenho medo de parecer fria.</summary><p>Tem exemplos de como ser firme sem cortar o vínculo.</p></details>
+  <details><summary>Já tentei e não funcionou.</summary><p>O que muda aqui é a forma de decidir — timing, intenção, tamanho — não só a frase.</p></details>
+</section>
+
+<hr>
+
+<!-- FECHAMENTO -->
+<section class="wrap" style="text-align:center">
+  <h2>Mais uma noite reescrevendo e apagando?</h2>
+  <p class="lead">Ou, em 10 minutos, saber exatamente o que fazer.</p>
+  <div class="btn-wrap"><a href="#oferta" class="btn">Quero saber o que responder — R$19,90</a></div>
+</section>
+
+<!-- STICKY CTA -->
+<div class="sticky">
+  <div class="price">R$19,90<small>R$47</small></div>
+  <a href="#oferta" class="btn">Quero saber o que responder</a>
+</div>
+
+</body>
+</html>
